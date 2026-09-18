@@ -1,20 +1,14 @@
 # tiny install script for blepfx plugins
-# installs:
+# current installs:
 # spectra : curl https://fx.amee.ee/spectra.sh | sh
 # prisma : curl https://fx.amee.ee/prisma.sh | sh
 # filtrr : curl https://fx.amee.ee/filtrr.sh | sh
 # crunchrr : curl https://fx.amee.ee/crunchrr.sh | sh
 # destruqtor : curl https://fx.amee.ee/destruqtor.sh | sh
-# this just runs all the curls at once OK im lazy
-# we make sure we can read the data from pipe
-if [[ -p /dev/stdin ]]
-  then
-  PIPE=$(cat -)
-  echo "PIPE=$PIPE"
+if [[ "$1" == "sh" ]]; then
+  echo "this script does not support curl | sh install, please instead:"
+  echo "wget curl https://raw.githubusercontent.com/echoe/blepfx_plugin_multiinstaller/refs/heads/main/install_blepfx.sh -O install_blepfx.sh; sh install_blepfx.sh"
 fi
-echo "$@"
-exit
-
 if [[ "$1" == "help" ]]; then
   echo "welcome to the blepfx multi-installer for linux. made by echoe in about 20 minutes."
   echo "install the same way the blepfx installs work. or if you've downloaded this ..."
@@ -22,7 +16,7 @@ if [[ "$1" == "help" ]]; then
   echo "for instance, running 'sh install_blepfx.sh 12345' will install all plugins."
   exit;
 fi
-if [ $# -eq 0 || "$1" == "sh" ]; then
+if [[ "$#" -eq 0 ]]; then
   echo "no arguments supplied. type out the plugin numbers you want to have installed"
   read -p "1: destruqtor \n 2: crunchrr \n 3:filtrr \n 4:prisma \n 5:spectra" selection
 else
@@ -35,8 +29,6 @@ else
     if [[ $continue == "y" ]]; then pass; else exit; fi
   fi
 fi
-echo "let's not do an install. selection is $selection"
-exit
 if [[ $selection == *"1"* ]]; then
   curl https://fx.amee.ee/destruqtor.sh | sh
 fi
@@ -52,5 +44,4 @@ fi
 if [[ $selection == *"5"* ]]; then
   curl https://fx.amee.ee/spectra.sh | sh
 fi
-echo "installs finished"
-echo "$selection"
+echo "installs finished for $selection"
