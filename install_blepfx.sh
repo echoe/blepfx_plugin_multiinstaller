@@ -7,7 +7,7 @@
 # destruqtor : curl https://fx.amee.ee/destruqtor.sh | sh
 if [[ "$1" == "sh" ]]; then
   echo "this script does not support curl | sh install, please instead:"
-  echo "wget curl https://raw.githubusercontent.com/echoe/blepfx_plugin_multiinstaller/refs/heads/main/install_blepfx.sh -O install_blepfx.sh; sh install_blepfx.sh"
+  echo "curl https://raw.githubusercontent.com/echoe/blepfx_plugin_multiinstaller/refs/heads/main/install_blepfx.sh -o install_blepfx.sh; sh install_blepfx.sh"
 fi
 if [[ "$1" == "help" ]]; then
   echo "welcome to the blepfx multi-installer for linux. made by echoe in about 20 minutes."
