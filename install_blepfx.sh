@@ -1,5 +1,5 @@
 # tiny install script for blepfx plugins
-plugin_explainer="1:destruqtor | 2:crunchrr | 3:filtrr | 4:prisma | 5:spectra"
+plugin_explainer="plugins for number: 1:destruqtor | 2:crunchrr | 3:filtrr | 4:prisma | 5:spectra"
 
 if [[ "$1" == "sh" ]]; then
   echo "this script does not support curl | sh install, please instead run it like this:"
@@ -8,8 +8,7 @@ if [[ "$1" == "sh" ]]; then
 fi
 
 if [[ "$1" == "help" ]]; then
-  echo "welcome to the blepfx multi-installer for linux. made by echoe in about 20 minutes."
-  echo "this installs any/all of the plugins at the same time, instead of one at a time."
+  echo "this is an unofficial multi-installer for blepfx's plugins for linux/mac."
   echo "to install a plugin, type its number as part of the first string after the script."
   echo $plugin_explainer
   echo "running 'sh install_blepfx.sh 12345 f' will force install all plugins."
